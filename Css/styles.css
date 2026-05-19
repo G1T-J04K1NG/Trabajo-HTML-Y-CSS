@@ -667,12 +667,13 @@
 
 .spotify-sidebar{
 
-width: 300px;
+    width: 300px;
     background-color: #121212; 
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     color: #fff;
-    text-align: right;
+    align-items: right;
+
 }
 
