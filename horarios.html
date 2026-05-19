@@ -1,44 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="Css/styles.css" />
+<html id="paginaHorarios" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Horarios</title>
-
+    <title>Horarios — EFAstival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/styles.css">
 </head>
-
-<body>
-     <header>
-    <div class="header-top">
-      <img id="imgLogo" src="img/Gemini_Generated_Image_ssu0tbssu0tbssu0-removebg-preview.png" alt="Logo Efastival" />
-      <h1 id="TituloPrincipal">EFASTIVAL</h1>
-    </div>
-    <p>El festival que cambiará tu forma de escuchar la música</p>
- <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="artistas.html">Artistas</a></li>
-      <li><a href="entradas.html">Entradas</a></li>
-      <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
-    </ul>
-  </nav>
+<body id="cuerpo">
  
-  </header>
-
-
-
-
-
-
-
+    <!-- HEADER -->
+    <header id="cabecera">
+        <div id="cabeceraTop" class="header-top">
+            <img id="imgLogo" src="img/Gemini_Generated_Image_ssu0tbssu0tbssu0-removebg-preview.png" alt="Logo Efastival" />
+            <h1 id="TituloPrincipal">EFASTIVAL</h1>
+        </div>
+        <p id="subtituloHeader">El festival que cambiará tu forma de escuchar la música</p>
+        <nav id="navegacion">
+            <ul id="menuNav">
+                <li id="navInicio"><a href="index.html">Inicio</a></li>
+                <li id="navArtistas"><a href="artistas.html">Artistas</a></li>
+                <li id="navEntradas"><a href="entradas.html">Entradas</a></li>
+                <li id="navHorarios"><a href="horarios.html" class="nav-activo">Horarios</a></li>
+                <li id="navSobreNosotros"><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- MAIN HORARIOS -->
+    <main id="contenidoHorarios">
+ 
+        <span id="horariosEtiqueta">🕐 Programa completo</span>
+        <h1 id="horariosTitulo">Horarios</h1>
+        <div id="horariosDivisor"></div>
+ 
+        <!-- DÍA 1 -->
+        <div id="dia1" class="horario-dia">
+            <h2 id="tituloDia1" class="dia-titulo">Día 1 -> 15 de Julio · Zaragoza</h2>
+            <ul id="listaDia1" class="lista-horario">
+                <li class="horario-item">
+                    <span class="horario-hora">17:00</span>
+                    <span class="horario-artista">Apertura de puertas</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">18:00</span>
+                    <span class="horario-artista">Artista 1</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">20:00</span>
+                    <span class="horario-artista">Artista 2</span>
+                    <span class="horario-escenario">Escenario Secundario</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">22:30</span>
+                    <span class="horario-artista">Artista Estrella</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+            </ul>
+        </div>
+ 
+        <!-- DÍA 2 -->
+        <div id="dia2" class="horario-dia">
+            <h2 id="tituloDia2" class="dia-titulo">Día 2 — 22 de Agosto · Sevilla</h2>
+            <ul id="listaDia2" class="lista-horario">
+                <li class="horario-item">
+                    <span class="horario-hora">17:00</span>
+                    <span class="horario-artista">Apertura de puertas</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">18:30</span>
+                    <span class="horario-artista">Artista 3</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">20:30</span>
+                    <span class="horario-artista">Artista 4</span>
+                    <span class="horario-escenario">Escenario Secundario</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">23:00</span>
+                    <span class="horario-artista">Artista Estrella</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+            </ul>
+        </div>
+ 
+        <!-- DÍA 3 -->
+        <div id="dia3" class="horario-dia">
+            <h2 id="tituloDia3" class="dia-titulo">Día 3 — 30 de Septiembre · Alicante</h2>
+            <ul id="listaDia3" class="lista-horario">
+                <li class="horario-item">
+                    <span class="horario-hora">17:00</span>
+                    <span class="horario-artista">Apertura de puertas</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">19:00</span>
+                    <span class="horario-artista">Artista 5</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">21:00</span>
+                    <span class="horario-artista">Artista 6</span>
+                    <span class="horario-escenario">Escenario Secundario</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">23:00</span>
+                    <span class="horario-artista">Artista Estrella</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+            </ul>
+        </div>
+ 
+        <!-- DÍA 4 -->
+        <div id="dia4" class="horario-dia">
+            <h2 id="tituloDia4" class="dia-titulo">Día 4 — 10 de Octubre · Madrid</h2>
+            <ul id="listaDia4" class="lista-horario">
+                <li class="horario-item">
+                    <span class="horario-hora">17:00</span>
+                    <span class="horario-artista">Apertura de puertas</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">19:30</span>
+                    <span class="horario-artista">Artista 7</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">21:30</span>
+                    <span class="horario-artista">Artista 8</span>
+                    <span class="horario-escenario">Escenario Secundario</span>
+                </li>
+                <li class="horario-item">
+                    <span class="horario-hora">23:30</span>
+                    <span class="horario-artista">Artista Estrella</span>
+                    <span class="horario-escenario">Escenario Principal</span>
+                </li>
+            </ul>
+        </div>
+ 
+    </main>
+ 
+    <!-- FOOTER -->
+    <footer id="piePagina">
+        <p id="copyright">© 2025 EFAstival · Todos los derechos reservados</p>
+    </footer>
+ 
 </body>
-
-
-
+</html>
 
 
 
