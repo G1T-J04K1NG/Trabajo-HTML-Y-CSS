@@ -823,3 +823,125 @@
         display: none;
     }
 }
+/* ── ARTISTAS ── */
+#contenidoArtistas {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#artistasEtiqueta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+#artistasTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 0.95;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#artistasDivisor {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    margin: 2rem 0;
+    border-radius: 2px;
+}
+
+#artistasTexto {
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+}
+
+#seccionArtistas {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#artistasContenedor {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#listaArtistas {
+    list-style: none;
+    display: grid;
+    gap: 2px;
+    counter-reset: artista;
+}
+
+#listaArtistas li {
+    counter-increment: artista;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1.4rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+#listaArtistas li::before {
+    content: counter(artista, decimal-leading-zero);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 36px;
+}
+
+#listaArtistas li:hover {
+    background: rgba(139, 47, 201, 0.12);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(6px);
+}
+
+.artista-nombre {
+    font-weight: 700;
+    flex: 1;
+}
+
+.artista-genero {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+}
+
+.artista-escenario {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+    #contenidoArtistas,
+    #seccionArtistas {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .artista-escenario {
+        display: none;
+    }
+}
