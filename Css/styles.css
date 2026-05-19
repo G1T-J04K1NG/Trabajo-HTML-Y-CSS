@@ -1,5 +1,45 @@
+ header {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 20px 5px;
+      background: linear-gradient(270deg, #8b2fc9, #00d4ff, #ff6a00, #8b2fc9 );
+      background-size: 300% 300%;
+      animation: gradiente 15s ease infinite;
+    }
+ 
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+ 
 
+ 
+    .header-top h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      gap: 5px
+    }
+
+    #TituloPrincipal {
+        font-size: 2.5rem;
+        margin: 0;
+
+    }
+
+    #imgLogo {
+      width: 200px;
+      height: auto;
+      padding-left: 0px;
+    }
+        
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+ 
     nav {
+      margin-top: 15px;
       border: 1px solid #ccc;
       padding: 10px 20px;
     }
@@ -15,4 +55,9 @@
     nav ul li a {
       text-decoration: none;
       color: inherit;
+    }
+        @keyframes gradiente {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
