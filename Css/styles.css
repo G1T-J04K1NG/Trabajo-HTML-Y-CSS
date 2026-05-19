@@ -1,7 +1,7 @@
 /* ============================================
    EFASTIVAL — styles.css
    ============================================ */
-
+ 
 /* ── VARIABLES ── */
 :root {
     --purple: #8b2fc9;
@@ -9,14 +9,14 @@
     --orange: #ff6a00;
     --white: #ffffff;
 }
-
+ 
 /* ── RESET ── */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 /* ── BODY ── */
 #cuerpo {
     font-family: 'Poppins', sans-serif;
@@ -24,7 +24,7 @@
     color: var(--white);
     overflow-x: hidden;
 }
-
+ 
 /* ── HEADER ── */
 #cabecera {
     display: flex;
@@ -34,38 +34,38 @@
     background-size: 300% 300%;
     animation: gradiente 15s ease infinite;
 }
-
+ 
 #cabeceraTop {
     display: flex;
     align-items: center;
     gap: 5px;
 }
-
+ 
 #imgLogo {
     width: 200px;
     height: auto;
 }
-
+ 
 #TituloPrincipal {
     font-family: 'Bebas Neue', cursive;
     font-size: 2.5rem;
     margin: 0;
     letter-spacing: 0.05em;
 }
-
+ 
 #subtituloHeader {
     margin-top: 10px;
     font-size: 1rem;
     font-weight: 300;
 }
-
+ 
 /* ── NAV ── */
 #navegacion {
     margin-top: 15px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 10px 20px;
 }
-
+ 
 #menuNav {
     list-style: none;
     margin: 0;
@@ -73,7 +73,7 @@
     display: flex;
     gap: 20px;
 }
-
+ 
 #navInicio a,
 #navArtistas a,
 #navEntradas a,
@@ -86,7 +86,7 @@
     letter-spacing: 0.04em;
     transition: opacity 0.2s;
 }
-
+ 
 #navInicio a:hover,
 #navArtistas a:hover,
 #navEntradas a:hover,
@@ -94,14 +94,14 @@
 #navSobreNosotros a:hover {
     opacity: 0.75;
 }
-
+ 
 /* ── MAIN / HERO ── */
 #contenidoPrincipal {
     padding: 80px 40px 60px;
     max-width: 960px;
     margin: 0 auto;
 }
-
+ 
 #heroEtiqueta {
     display: inline-block;
     background: linear-gradient(90deg, var(--purple), var(--cyan));
@@ -114,7 +114,7 @@
     margin-bottom: 1.5rem;
     animation: fadeIn 0.6s both;
 }
-
+ 
 #heroTitulo {
     font-family: 'Bebas Neue', cursive;
     font-size: clamp(3.5rem, 9vw, 7rem);
@@ -127,7 +127,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
+ 
 #heroDivisor {
     width: 70px;
     height: 4px;
@@ -136,7 +136,7 @@
     border-radius: 2px;
     animation: expandLine 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-
+ 
 #heroTexto {
     max-width: 620px;
     font-size: 1.05rem;
@@ -145,7 +145,7 @@
     font-weight: 300;
     animation: slideUp 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-
+ 
 #heroTagline {
     margin-top: 1.2rem;
     font-size: 0.9rem;
@@ -158,19 +158,19 @@
     background-clip: text;
     animation: slideUp 0.8s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-
+ 
 /* ── SECCIÓN FECHAS ── */
 #seccionFechas {
     padding: 60px 40px;
     background: rgba(255, 255, 255, 0.03);
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
-
+ 
 #fechasContenedor {
     max-width: 960px;
     margin: 0 auto;
 }
-
+ 
 #fechasTitulo {
     font-family: 'Bebas Neue', cursive;
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -180,7 +180,7 @@
     position: relative;
     display: inline-block;
 }
-
+ 
 #fechasTitulo::after {
     content: '';
     position: absolute;
@@ -191,14 +191,14 @@
     background: linear-gradient(90deg, var(--orange), var(--purple), transparent);
     border-radius: 2px;
 }
-
+ 
 #listaFechas {
     list-style: none;
     display: grid;
     gap: 2px;
     counter-reset: item;
 }
-
+ 
 #fechaZaragoza,
 #fechaSevilla,
 #fechaAlicante,
@@ -216,7 +216,7 @@
     position: relative;
     overflow: hidden;
 }
-
+ 
 #fechaZaragoza::before,
 #fechaSevilla::before,
 #fechaAlicante::before,
@@ -231,7 +231,7 @@
     background-clip: text;
     min-width: 36px;
 }
-
+ 
 #fechaZaragoza::after,
 #fechaSevilla::after,
 #fechaAlicante::after,
@@ -244,7 +244,7 @@
     transition: opacity 0.25s, transform 0.25s;
     color: var(--cyan);
 }
-
+ 
 #fechaZaragoza:hover,
 #fechaSevilla:hover,
 #fechaAlicante:hover,
@@ -253,7 +253,7 @@
     border-color: rgba(0, 212, 255, 0.3);
     transform: translateX(6px);
 }
-
+ 
 #fechaZaragoza:hover::after,
 #fechaSevilla:hover::after,
 #fechaAlicante:hover::after,
@@ -261,7 +261,7 @@
     opacity: 1;
     transform: translateX(0);
 }
-
+ 
 /* Ciudades */
 #ciudadZaragoza,
 #ciudadSevilla,
@@ -270,7 +270,7 @@
     font-weight: 700;
     color: var(--white);
 }
-
+ 
 /* Fechas */
 #dataZaragoza,
 #dataSevilla,
@@ -282,41 +282,41 @@
     font-size: 0.88rem;
     letter-spacing: 0.07em;
 }
-
+ 
 /* ── FOOTER ── */
 #piePagina {
     text-align: center;
     padding: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
+ 
 #copyright {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.25);
 }
-
+ 
 /* ── ANIMACIONES ── */
 @keyframes gradiente {
     0%   { background-position: 0% 50%; }
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
+ 
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-
+ 
 @keyframes expandLine {
     from { width: 0; opacity: 0; }
     to   { width: 70px; opacity: 1; }
 }
-
+ 
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
+ 
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
     #contenidoPrincipal,
@@ -324,14 +324,14 @@
         padding-left: 20px;
         padding-right: 20px;
     }
-
+ 
     #dataZaragoza,
     #dataSevilla,
     #dataAlicante,
     #dataMadrid {
         display: none;
     }
-
+ 
     #menuNav {
         flex-wrap: wrap;
         gap: 12px;
@@ -343,7 +343,7 @@
     max-width: 960px;
     margin: 0 auto;
 }
-
+ 
 #horariosEtiqueta {
     display: inline-block;
     background: linear-gradient(90deg, var(--purple), var(--cyan));
@@ -355,7 +355,7 @@
     border-radius: 2px;
     margin-bottom: 1.5rem;
 }
-
+ 
 #horariosTitulo {
     font-family: 'Bebas Neue', cursive;
     font-size: clamp(3rem, 8vw, 6rem);
@@ -366,7 +366,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
+ 
 #horariosDivisor {
     width: 70px;
     height: 4px;
@@ -374,11 +374,11 @@
     margin: 2rem 0;
     border-radius: 2px;
 }
-
+ 
 .horario-dia {
     margin-bottom: 3rem;
 }
-
+ 
 .dia-titulo {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.8rem;
@@ -388,13 +388,13 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 0.5rem;
 }
-
+ 
 .lista-horario {
     list-style: none;
     display: grid;
     gap: 2px;
 }
-
+ 
 .horario-item {
     display: flex;
     align-items: center;
@@ -404,13 +404,13 @@
     border: 1px solid rgba(255,255,255,0.07);
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
 }
-
+ 
 .horario-item:hover {
     background: rgba(139, 47, 201, 0.12);
     border-color: rgba(0, 212, 255, 0.3);
     transform: translateX(6px);
 }
-
+ 
 .horario-hora {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
@@ -418,25 +418,25 @@
     min-width: 60px;
     letter-spacing: 0.05em;
 }
-
+ 
 .horario-artista {
     font-weight: 600;
     font-size: 1rem;
     flex: 1;
 }
-
+ 
 .horario-escenario {
     font-size: 0.8rem;
     font-weight: 300;
     color: rgba(255,255,255,0.45);
     letter-spacing: 0.07em;
 }
-
+ 
 /* Enlace activo en nav */
 .nav-activo {
     color: var(--cyan) !important;
 }
-
+ 
 @media (max-width: 600px) {
     #contenidoHorarios {
         padding-left: 20px;
@@ -449,3 +449,230 @@
         padding: 1rem;
     }
 }
+ 
+/* ── SOBRE NOSOTROS ── */
+#contenidoSobre {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+ 
+#sobreEtiqueta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s both;
+}
+ 
+#sobreTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+ 
+#sobreDivisor {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    margin: 2rem 0;
+    border-radius: 2px;
+    animation: expandLine 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+ 
+#sobreIntro {
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    animation: slideUp 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+ 
+/* ── MISIÓN / VISIÓN / VALORES ── */
+#seccionMision {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+ 
+#misionContenedor {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+}
+ 
+.mision-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 2rem;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+ 
+.mision-card:hover {
+    background: rgba(139, 47, 201, 0.12);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-4px);
+}
+ 
+.mision-icono {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+ 
+.mision-titulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+    margin-bottom: 0.75rem;
+}
+ 
+.mision-texto {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 300;
+}
+ 
+/* ── EQUIPO ── */
+#seccionEquipo {
+    padding: 60px 40px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+ 
+#equipoTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+ 
+#equipoTitulo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--purple), transparent);
+    border-radius: 2px;
+}
+ 
+#listaEquipo {
+    list-style: none;
+    display: grid;
+    gap: 2px;
+    counter-reset: miembro;
+}
+ 
+.equipo-miembro {
+    counter-increment: miembro;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1.4rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.equipo-miembro::before {
+    content: counter(miembro, decimal-leading-zero);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 36px;
+}
+ 
+.equipo-miembro::after {
+    content: '→';
+    position: absolute;
+    right: 2rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.25s, transform 0.25s;
+    color: var(--cyan);
+}
+ 
+.equipo-miembro:hover {
+    background: rgba(139, 47, 201, 0.12);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(6px);
+}
+ 
+.equipo-miembro:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+ 
+.miembro-nombre {
+    font-weight: 700;
+    color: var(--white);
+    font-size: 1rem;
+    flex: 1;
+}
+ 
+.miembro-rol {
+    margin-left: auto;
+    margin-right: 2.5rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.88rem;
+    letter-spacing: 0.07em;
+}
+ 
+@media (max-width: 600px) {
+    #contenidoSobre,
+    #seccionMision,
+    #seccionEquipo {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+ 
+    .miembro-rol {
+        display: none;
+    }
+ 
+    #misionContenedor {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spotify-sidebar{
+
+width: 300px;
+    background-color: #121212; 
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-align: right;
+}
+
