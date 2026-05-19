@@ -823,6 +823,8 @@
         display: none;
     }
 }
+
+
 /* ── ARTISTAS ── */
 #contenidoArtistas {
     padding: 80px 40px 60px;
@@ -879,59 +881,108 @@
     margin: 0 auto;
 }
 
-#listaArtistas {
-    list-style: none;
-    display: grid;
-    gap: 2px;
-    counter-reset: artista;
-}
-
-#listaArtistas li {
-    counter-increment: artista;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 1.4rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    transition: background 0.25s, border-color 0.25s, transform 0.25s;
-}
-
-#listaArtistas li::before {
-    content: counter(artista, decimal-leading-zero);
+#artistasListaTitulo {
     font-family: 'Bebas Neue', cursive;
-    font-size: 1rem;
-    background: linear-gradient(135deg, var(--orange), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    min-width: 36px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
 }
 
-#listaArtistas li:hover {
-    background: rgba(139, 47, 201, 0.12);
-    border-color: rgba(0, 212, 255, 0.3);
-    transform: translateX(6px);
+/* Contenedor de las tablas horizontales */
+.tablas-artistas-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Separación entre bloques de tablas */
 }
 
-.artista-nombre {
+.tabla-artistas-horizontal {
+    width: 100%;
+    table-layout: fixed; /* Fuerza a que todas las columnas midan exactamente lo mismo */
+    border-collapse: separate;
+    border-spacing: 15px 0; /* Espaciado horizontal entre las columnas de los artistas */
+    background: transparent;
+}
+
+/* Estilos de las celdas (Cajas de los artistas) */
+.tabla-artistas-horizontal td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1.2rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Separadores internos para Nombre / Imagen / Genero */
+.fila-nombres td {
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    flex: 1;
+    font-size: 1.1rem;
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria inferior ---------- */
+    border-radius: 6px 6px 0 0;
 }
 
+.fila-imagenes td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria inferior ---------- */
+    padding: 1.5rem 1rem;
+}
+
+.fila-generos td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0 0 6px 6px;
+}
+
+/* Control de la imagen futura */
+.artista-foto img {
+    width: 100%;
+    max-width: 140px; /* Tamaño máximo de la foto en la columna */
+    aspect-ratio: 1 / 1; /* Forzamos a que sea perfectamente cuadrada */
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Etiqueta del género musical */
 .artista-genero {
+    display: inline-block;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 3px 10px;
+    padding: 4px 14px;
     border-radius: 2px;
     background: linear-gradient(90deg, var(--orange), var(--purple));
+    color: var(--white);
 }
 
-.artista-escenario {
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.88rem;
+/* Animación Hover en la columna completa (Efecto festivalero al pasar el ratón) */
+/* Como no podemos hacer hover a una columna nativa fácilmente, iluminamos las celdas alineadas */
+.tabla-artistas-horizontal tr:hover td {
+    background: rgba(139, 47, 201, 0.08);
+}
+
+/* Ajuste Responsivo para móviles */
+@media (max-width: 768px) {
+    .tabla-artistas-horizontal {
+        display: block;
+        overflow-x: auto; /* Si la pantalla es muy chica, permite scroll horizontal suave en el bloque */
+        white-space: nowrap;
+    }
+    
+    .tabla-artistas-horizontal tbody {
+        display: table;
+        width: 100%;
+    }
+    
+    .tabla-artistas-horizontal td {
+        min-width: 160px; /* Evita que las columnas se aplasten en pantallas pequeñas */
+    }
 }
 
 @media (max-width: 600px) {
@@ -939,9 +990,5 @@
     #seccionArtistas {
         padding-left: 20px;
         padding-right: 20px;
-    }
-
-    .artista-escenario {
-        display: none;
     }
 }
