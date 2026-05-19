@@ -1,30 +1,59 @@
-<!DOCTYPE html>     
-<html lang="es">
+<!DOCTYPE html>
+<html id="paginaPrincipal" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFAstival</title>
+    <link id="fuenteGoogle" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link id="estilosPrincipales" rel="stylesheet" href="Css/styles.css">
 </head>
-<body>
-
-
-
-    <main>
-        <h1>Bienvenidos a EFAstival</h1>
-        <p>¡Prepárate para vivir una experiencia musical inolvidable en EFAstival! Nuestro festival de música es el lugar perfecto 
-            para los amantes de la música en vivo, donde podrás disfrutar de los mejores artistas del género urbano.
-             Desde el Rock y el RAP hasta los cierres de Techno.</p>
-             <br>
-        <p>EFAstival - El festival de música urbana que no puedes perderte.</p>
+<body id="cuerpo">
+ 
+    <!-- HEADER -->
+    <header id="cabecera">
+        <div id="cabeceraTop" class="header-top">
+            <img id="imgLogo" src="img/Gemini_Generated_Image_ssu0tbssu0tbssu0-removebg-preview.png" alt="Logo Efastival" />
+            <h1 id="TituloPrincipal">EFASTIVAL</h1>
+        </div>
+        <p id="subtituloHeader">El festival que cambiará tu forma de escuchar la música</p>
+        <nav id="navegacion">
+            <ul id="menuNav">
+                <li id="navInicio"><a id="enlaceInicio" href="index.html">Inicio</a></li>
+                <li id="navArtistas"><a id="enlaceArtistas" href="artistas.html">Artistas</a></li>
+                <li id="navEntradas"><a id="enlaceEntradas" href="entradas.html">Entradas</a></li>
+                <li id="navHorarios"><a id="enlaceHorarios" href="horarios.html">Horarios</a></li>
+                <li id="navSobreNosotros"><a id="enlaceSobreNosotros" href="sobre-nosotros.html">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- MAIN / HERO -->
+    <main id="contenidoPrincipal">
+        <span id="heroEtiqueta" class="hero-tag">🎵 Música urbana en vivo</span>
+        <h1 id="heroTitulo">Bienvenidos a EFAstival</h1>
+        <div id="heroDivisor" class="hero-divider"></div>
+        <p id="heroTexto" class="hero-text">¡Prepárate para vivir una experiencia musical inolvidable en EFAstival! Nuestro festival es el lugar perfecto para los amantes de la música en vivo, donde podrás disfrutar de los mejores artistas del género urbano. Desde el Rock y el RAP hasta los cierres de Techno.</p>
+        <p id="heroTagline" class="hero-tagline">EFAstival — El festival de música urbana que no puedes perderte</p>
     </main>
-
-    <section>
-        <h2>Próximas Fechas</h2>
-        <ul>
-            <li>Zaragoza - 15 de julio</li>
-            <li>Sevilla - 22 de agosto</li>
-            <li>Alicante - 30 de septiembre</li>
-            <li>Madrid - 10 de octubre</li>
-        </ul>
+ 
+    <!-- SECCIÓN FECHAS -->
+    <section id="seccionFechas">
+        <div id="fechasContenedor" class="section-inner">
+            <h2 id="fechasTitulo">Próximas Fechas</h2>
+            <ul id="listaFechas" class="fechas">
+                <li id="fechaZaragoza"><span id="ciudadZaragoza" class="city">Zaragoza</span><span id="dataZaragoza" class="date">15 de julio</span></li>
+                <li id="fechaSevilla"><span id="ciudadSevilla" class="city">Sevilla</span><span id="dataSevilla" class="date">22 de agosto</span></li>
+                <li id="fechaAlicante"><span id="ciudadAlicante" class="city">Alicante</span><span id="dataAlicante" class="date">30 de septiembre</span></li>
+                <li id="fechaMadrid"><span id="ciudadMadrid" class="city">Madrid</span><span id="dataMadrid" class="date">10 de octubre</span></li>
+            </ul>
+        </div>
+    </section>
+ 
+    <!-- FOOTER -->
+    <footer id="piePagina">
+        <p id="copyright">© 2025 EFAstival · Todos los derechos reservados</p>
+    </footer>
+ 
 </body>
 </html>
+ 
