@@ -1,0 +1,218 @@
+/* ============================================
+   EFASTIVAL — styles-index.css
+   Estilos exclusivos de index.html
+   ============================================ */
+ 
+/* ── HERO ── */
+#contenidoPrincipal {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+ 
+#heroEtiqueta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s both;
+}
+ 
+#heroTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+ 
+#heroDivisor {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    margin: 2rem 0;
+    border-radius: 2px;
+    animation: expandLine 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+ 
+#heroTexto {
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+    animation: slideUp 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+ 
+#heroTagline {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--orange), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideUp 0.8s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+ 
+/* ── SECCIÓN FECHAS ── */
+#seccionFechas {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+ 
+#fechasContenedor {
+    max-width: 960px;
+    margin: 0 auto;
+}
+ 
+#fechasTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+ 
+#fechasTitulo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--purple), transparent);
+    border-radius: 2px;
+}
+ 
+#listaFechas {
+    list-style: none;
+    display: grid;
+    gap: 2px;
+    counter-reset: item;
+}
+ 
+#fechaZaragoza,
+#fechaSevilla,
+#fechaAlicante,
+#fechaMadrid {
+    counter-increment: item;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1.4rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    cursor: default;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+ 
+#fechaZaragoza::before,
+#fechaSevilla::before,
+#fechaAlicante::before,
+#fechaMadrid::before {
+    content: counter(item, decimal-leading-zero);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 36px;
+}
+ 
+#fechaZaragoza::after,
+#fechaSevilla::after,
+#fechaAlicante::after,
+#fechaMadrid::after {
+    content: '→';
+    position: absolute;
+    right: 2rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.25s, transform 0.25s;
+    color: var(--cyan);
+}
+ 
+#fechaZaragoza:hover,
+#fechaSevilla:hover,
+#fechaAlicante:hover,
+#fechaMadrid:hover {
+    background: rgba(139, 47, 201, 0.12);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(6px);
+}
+ 
+#fechaZaragoza:hover::after,
+#fechaSevilla:hover::after,
+#fechaAlicante:hover::after,
+#fechaMadrid:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+ 
+#ciudadZaragoza,
+#ciudadSevilla,
+#ciudadAlicante,
+#ciudadMadrid {
+    font-weight: 700;
+    color: var(--white);
+}
+ 
+#dataZaragoza,
+#dataSevilla,
+#dataAlicante,
+#dataMadrid {
+    margin-left: auto;
+    margin-right: 2.5rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.88rem;
+    letter-spacing: 0.07em;
+}
+ 
+/* ── SPOTIFY SIDEBAR ── */
+#spotify-sidebar {
+    width: 500px;
+    background-color: #121212;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 40px auto;
+    display: fixed;
+}
+ 
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    #contenidoPrincipal,
+    #seccionFechas {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+ 
+    #dataZaragoza,
+    #dataSevilla,
+    #dataAlicante,
+    #dataMadrid {
+        display: none;
+    }
+}

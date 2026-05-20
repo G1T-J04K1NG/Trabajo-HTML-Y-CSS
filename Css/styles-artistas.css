@@ -1,0 +1,175 @@
+/* ============================================
+   EFASTIVAL — styles-artistas.css
+   Estilos exclusivos de artistas.html
+   ============================================ */
+
+/* ── HERO ARTISTAS ── */
+#contenidoArtistas {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#artistasEtiqueta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+#artistasTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 0.95;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#artistasDivisor {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    margin: 2rem 0;
+    border-radius: 2px;
+}
+
+#artistasTexto {
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+}
+
+/* ── SECCIÓN CARTEL ── */
+#seccionArtistas {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#artistasContenedor {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#artistasListaTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+/* ── TABLAS DE ARTISTAS ── */
+.tablas-artistas-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.tabla-artistas-horizontal {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 15px 0;
+    background: transparent;
+}
+
+.tabla-artistas-horizontal td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1.2rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.fila-nombres td {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px 6px 0 0;
+}
+
+.fila-imagenes td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1rem;
+}
+
+.fila-generos td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0 0 6px 6px;
+}
+
+.artista-foto img {
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    filter: grayscale(20%) contrast(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.artista-foto img:hover {
+    transform: scale(1.06);
+    filter: grayscale(0%) brightness(1.1);
+}
+
+.artista-genero {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    color: var(--white);
+}
+
+.tabla-artistas-horizontal tr:hover td {
+    background: rgba(139, 47, 201, 0.08);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .tabla-artistas-horizontal {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .tabla-artistas-horizontal tbody {
+        display: table;
+        width: 100%;
+    }
+
+    .tabla-artistas-horizontal td {
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 600px) {
+    #contenidoArtistas,
+    #seccionArtistas {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

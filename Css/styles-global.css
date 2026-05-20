@@ -1,0 +1,174 @@
+/* ============================================
+   EFASTIVAL — styles-global.css
+   Estilos compartidos por todas las páginas
+   ============================================ */
+ 
+/* ── VARIABLES ── */
+:root {
+    --purple: #8b2fc9;
+    --cyan: #00d4ff;
+    --orange: #ff6a00;
+    --white: #ffffff;
+}
+ 
+/* ── RESET ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* ── BODY ── */
+#cuerpo {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d0d0d;
+    color: var(--white);
+    overflow-x: hidden;
+}
+ 
+/* ── HEADER ── */
+#cabecera {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 5px;
+    background: linear-gradient(270deg, #8b2fc9, #00d4ff, #ff6a00, #8b2fc9);
+    background-size: 300% 300%;
+    animation: gradiente 15s ease infinite;
+}
+ 
+#cabeceraTop {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+ 
+#imgLogo {
+    width: 200px;
+    height: auto;
+}
+ 
+#TituloPrincipal {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+ 
+#subtituloHeader {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 300;
+}
+ 
+/* ── NAV ── */
+#navegacion {
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+}
+ 
+#menuNav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+ 
+#navInicio a,
+#navArtistas a,
+#navEntradas a,
+#navHorarios a,
+#navSobreNosotros a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+}
+ 
+#navInicio a:hover,
+#navArtistas a:hover,
+#navEntradas a:hover,
+#navHorarios a:hover,
+#navSobreNosotros a:hover {
+    opacity: 0.75;
+}
+ 
+/* Enlace activo en nav */
+.nav-activo {
+    color: var(--cyan) !important;
+}
+ 
+/* ── FOOTER ── */
+
+#piePagina {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    margin-top: 4rem;
+    margin-right: auto;
+}
+
+
+ 
+#copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+ 
+/* Logos de pago */
+#logosPago {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+ 
+#imgVisa,
+#imgBizum {
+    width: 50px;
+    height: auto;
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: opacity 0.3s, filter 0.3s;
+}
+ 
+#imgVisa:hover,
+#imgBizum:hover {
+    opacity: 0.9;
+    filter: grayscale(0%);
+}
+ 
+/* ── ANIMACIONES ── */
+@keyframes gradiente {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+ 
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+ 
+@keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to   { width: 70px; opacity: 1; }
+}
+ 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+ 
+/* ── RESPONSIVE GLOBAL ── */
+@media (max-width: 600px) {
+    #menuNav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}

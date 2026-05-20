@@ -1,0 +1,118 @@
+/* ============================================
+   EFASTIVAL — styles-horarios.css
+   Estilos exclusivos de horarios.html
+   ============================================ */
+ 
+/* ── HERO HORARIOS ── */
+#contenidoHorarios {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+ 
+#horariosEtiqueta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+ 
+#horariosTitulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+ 
+#horariosDivisor {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    margin: 2rem 0;
+    border-radius: 2px;
+}
+ 
+/* ── DÍAS ── */
+.horario-dia {
+    margin-bottom: 3rem;
+}
+ 
+.dia-titulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+ 
+/* ── LISTA DE HORARIO ── */
+.lista-horario {
+    list-style: none;
+    display: grid;
+    gap: 2px;
+}
+ 
+.horario-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+ 
+.horario-item:hover {
+    background: rgba(139, 47, 201, 0.12);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(6px);
+}
+ 
+.horario-hora {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    color: var(--cyan);
+    min-width: 60px;
+    letter-spacing: 0.05em;
+}
+ 
+.horario-artista {
+    font-weight: 600;
+    font-size: 1rem;
+    flex: 1;
+}
+ 
+.horario-escenario {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.07em;
+}
+ 
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    #contenidoHorarios {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+ 
+    .horario-escenario {
+        display: none;
+    }
+ 
+    .horario-item {
+        padding: 1rem;
+    }
+}
+ 
