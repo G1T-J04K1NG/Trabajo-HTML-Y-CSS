@@ -1,9 +1,5 @@
-/* ============================================
-   EFASTIVAL — styles-entradas.css
-   Estilos exclusivos de entradas.html
-   ============================================ */
 
-/* ── HERO ENTRADAS ── */
+/* Estilo de las entradas*/
 #contenidoEntradas {
     padding: 80px 40px 60px;
     max-width: 960px;
@@ -124,32 +120,6 @@
     border-color: rgba(0, 212, 255, 0.3);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-    #contenidoEntradas {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    #entradasAbono {
-        margin-top: 40px;
-        padding-top: 40px;
-    }
-
-    #tablaEntradas th,
-    #tablaEntradas td,
-    #tablaAbonos th,
-    #tablaAbonos td {
-        padding: 0.9rem 1rem;
-    }
-
-    #tablaEntradas th:last-child,
-    #tablaEntradas td:last-child,
-    #tablaAbonos th:last-child,
-    #tablaAbonos td:last-child {
-        display: none;
-    }
-}
 /* ── BOTÓN COMPRAR ── */
 .btn-comprar {
     display: inline-block;
@@ -178,11 +148,22 @@
     white-space: nowrap;
 }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-    #tablaEntradas th:last-child,
-    #tablaEntradas td:last-child,
-    #tablaAbonos th:last-child,
-    #tablaAbonos td:last-child {
-        display: table-cell;
+    #contenidoEntradas {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #entradasAbono {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+
+    #tablaEntradas th,
+    #tablaEntradas td,
+    #tablaAbonos th,
+    #tablaAbonos td {
+        padding: 0.9rem 1rem;
     }
 }

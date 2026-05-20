@@ -216,110 +216,151 @@
     </footer>
 
     <script>
-        // ── Leer parámetros de la URL ──
-        const params = new URLSearchParams(window.location.search);
-        const tipo = params.get('tipo') || 'General';
-        const precio = parseFloat(params.get('precio')) || 50;
-        const modalidad = params.get('modalidad') || 'fecha';
+            // ── Leer parámetros de la URL ──
+            var params = new URLSearchParams(window.location.search);
+            var tipo = params.get('tipo') || 'General';
+            var precio = parseFloat(params.get('precio')) || 50;
+            var modalidad = params.get('modalidad') || 'fecha';
 
-        let cantidad = 1;
-        let pasoActual = 1;
+            var cantidad = 1;
+            var pasoActual = 1;
 
-        const beneficiosMap = {
-            'General-fecha':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Una única fecha'],
-            'VIP-fecha':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ en consumición'],
-            'Premium-fecha':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
-            'General-abono':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Todas las fechas del festival'],
-            'VIP-abono':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ por fecha'],
-            'Premium-abono':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
-        };
+            var beneficiosMap = {
+                'General-fecha':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Una única fecha'],
+                'VIP-fecha':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ en consumición'],
+                'Premium-fecha':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
+                'General-abono':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Todas las fechas del festival'],
+                'VIP-abono':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ por fecha'],
+                'Premium-abono':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
+            };
 
-        function formatPrecio(n) {
-            return '€' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2));
-        }
-
-        function actualizarTotal() {
-            const total = precio * cantidad;
-            document.getElementById('precioTotal').textContent = formatPrecio(total);
-            document.getElementById('totalFinal').textContent = formatPrecio(total);
-        }
-
-        function init() {
-            // Rellenar resumen
-            const badge = document.getElementById('badgeModalidad');
-            badge.textContent = modalidad === 'abono' ? 'ABONO COMPLETO' : 'UNA FECHA';
-            badge.className = 'badge-' + modalidad;
-
-            document.getElementById('resumenTipo').textContent = tipo + (modalidad === 'abono' ? ' — Abono' : ' — Fecha');
-            document.getElementById('precioUnitario').textContent = formatPrecio(precio);
-
-            const key = tipo + '-' + modalidad;
-            const beneficios = beneficiosMap[key] || [];
-            const lista = document.getElementById('listaBeneficios');
-            lista.innerHTML = beneficios.map(b => `<li>${b}</li>`).join('');
-
-            actualizarTotal();
-
-            // Controles cantidad
-            document.getElementById('btnMenos').addEventListener('click', () => {
-                if (cantidad > 1) { cantidad--; document.getElementById('cantidad').textContent = cantidad; actualizarTotal(); }
-            });
-            document.getElementById('btnMas').addEventListener('click', () => {
-                if (cantidad < 10) { cantidad++; document.getElementById('cantidad').textContent = cantidad; actualizarTotal(); }
-            });
-
-            // Formato tarjeta
-            document.getElementById('numeroTarjeta').addEventListener('input', e => {
-                let v = e.target.value.replace(/\D/g, '').substring(0,16);
-                e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
-            });
-            document.getElementById('caducidad').addEventListener('input', e => {
-                let v = e.target.value.replace(/\D/g, '').substring(0,4);
-                if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2);
-                e.target.value = v;
-            });
-        }
-
-        function irPaso(n) {
-            document.querySelectorAll('.paso').forEach(p => p.classList.remove('activo'));
-            document.querySelector('[data-paso="' + n + '"]').classList.add('activo');
-            document.querySelectorAll('.paso-ind').forEach((ind, i) => {
-                ind.classList.toggle('activo', i < n);
-                ind.classList.toggle('completado', i < n - 1);
-            });
-            pasoActual = n;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function validarDatosYContinuar() {
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const dni = document.getElementById('dni').value.trim();
-            if (!nombre || !email || !dni) {
-                alert('Por favor, rellena los campos obligatorios: nombre, email y DNI.');
-                return;
+            function formatPrecio(n) {
+                if (n % 1 === 0) {
+                    return '€' + n.toFixed(0);
+                }
+                return '€' + n.toFixed(2);
             }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert('Por favor, introduce un email válido.');
-                return;
+
+            function actualizarTotal() {
+                var total = precio * cantidad;
+                document.getElementById('precioTotal').textContent = formatPrecio(total);
+                document.getElementById('totalFinal').textContent = formatPrecio(total);
             }
-            irPaso(3);
-        }
 
-        function seleccionarPago(metodo) {
-            document.querySelectorAll('.opcion-pago').forEach(b => b.classList.remove('activa'));
-            document.querySelectorAll('.panel-pago').forEach(p => p.classList.remove('activo'));
-            document.getElementById('btn' + metodo.charAt(0).toUpperCase() + metodo.slice(1)).classList.add('activa');
-            document.getElementById('panel' + metodo.charAt(0).toUpperCase() + metodo.slice(1)).classList.add('activo');
-        }
+            function init() {
+                // Rellenar resumen
+                var badge = document.getElementById('badgeModalidad');
+                badge.textContent = modalidad === 'abono' ? 'ABONO COMPLETO' : 'UNA FECHA';
+                badge.className = 'badge-' + modalidad;
 
-        function confirmarCompra() {
-            irPaso(4);
-            const ref = 'EFA-' + Date.now().toString(36).toUpperCase();
-            document.getElementById('codigoRef').textContent = ref;
-        }
+                document.getElementById('resumenTipo').textContent = tipo + (modalidad === 'abono' ? ' — Abono' : ' — Fecha');
+                document.getElementById('precioUnitario').textContent = formatPrecio(precio);
 
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
-</body>
+                var key = tipo + '-' + modalidad;
+                var beneficios = beneficiosMap[key] || [];
+                var lista = document.getElementById('listaBeneficios');
+                var items = '';
+                for (var i = 0; i < beneficios.length; i++) {
+                    items += '<li>' + beneficios[i] + '</li>';
+                }
+                lista.innerHTML = items;
+
+                actualizarTotal();
+
+                // Controles cantidad
+                document.getElementById('btnMenos').addEventListener('click', function() {
+                    if (cantidad > 1) {
+                        cantidad--;
+                        document.getElementById('cantidad').textContent = cantidad;
+                        actualizarTotal();
+                    }
+                });
+                document.getElementById('btnMas').addEventListener('click', function() {
+                    if (cantidad < 10) {
+                        cantidad++;
+                        document.getElementById('cantidad').textContent = cantidad;
+                        actualizarTotal();
+                    }
+                });
+
+                // Formato tarjeta
+                document.getElementById('numeroTarjeta').addEventListener('input', function(e) {
+                    var v = e.target.value.replace(/\D/g, '').substring(0, 16);
+                    e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+                });
+                document.getElementById('caducidad').addEventListener('input', function(e) {
+                    var v = e.target.value.replace(/\D/g, '').substring(0, 4);
+                    if (v.length > 2) {
+                        v = v.substring(0, 2) + '/' + v.substring(2);
+                    }
+                    e.target.value = v;
+                });
+            }
+
+            function irPaso(n) {
+                var pasos = document.querySelectorAll('.paso');
+                for (var i = 0; i < pasos.length; i++) {
+                    pasos[i].classList.remove('activo');
+                }
+                document.querySelector('[data-paso="' + n + '"]').classList.add('activo');
+
+                var indicadores = document.querySelectorAll('.paso-ind');
+                for (var j = 0; j < indicadores.length; j++) {
+                    if (j < n) {
+                        indicadores[j].classList.add('activo');
+                    } else {
+                        indicadores[j].classList.remove('activo');
+                    }
+                    if (j < n - 1) {
+                        indicadores[j].classList.add('completado');
+                    } else {
+                        indicadores[j].classList.remove('completado');
+                    }
+                }
+
+                pasoActual = n;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function validarDatosYContinuar() {
+                var nombre = document.getElementById('nombre').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var dni = document.getElementById('dni').value.trim();
+
+                if (!nombre || !email || !dni) {
+                    alert('Por favor, rellena los campos obligatorios: nombre, email y DNI.');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('Por favor, introduce un email válido.');
+                    return;
+                }
+                irPaso(3);
+            }
+
+            function seleccionarPago(metodo) {
+                var botones = document.querySelectorAll('.opcion-pago');
+                for (var i = 0; i < botones.length; i++) {
+                    botones[i].classList.remove('activa');
+                }
+                var paneles = document.querySelectorAll('.panel-pago');
+                for (var j = 0; j < paneles.length; j++) {
+                    paneles[j].classList.remove('activo');
+                }
+
+                var primerLetra = metodo.charAt(0).toUpperCase();
+                var resto = metodo.slice(1);
+                document.getElementById('btn' + primerLetra + resto).classList.add('activa');
+                document.getElementById('panel' + primerLetra + resto).classList.add('activo');
+            }
+
+            function confirmarCompra() {
+                irPaso(4);
+                var ref = 'EFA-' + Date.now().toString(36).toUpperCase();
+                document.getElementById('codigoRef').textContent = ref;
+            }
+
+            document.addEventListener('DOMContentLoaded', init);
+        </script>
+    </body>
 </html>
