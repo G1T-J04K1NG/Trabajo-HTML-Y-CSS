@@ -7,7 +7,6 @@
     <link id="fuenteGoogle" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link id="estilosPrincipales" rel="stylesheet" href="Css/styles-global.css">
     <link id="estilosEntradas" rel="stylesheet" href="Css/styles-entradas.css">
-
 </head>
 <body id="cuerpo">
 
@@ -31,68 +30,74 @@
 
     <main id="contenidoEntradas">
         <h1 id="tituloEntradas">Entradas Disponibles</h1>
+
         <div id="entradasSolaFecha">
             <h2 id="tituloSolaFecha">Entradas Una Sola Fecha</h2>
-            <table id = "tablaEntradas">
+            <table id="tablaEntradas">
                 <tr>
                     <th>Tipo de Entrada</th>
                     <th>Precio</th>
                     <th>Beneficios</th>
+                    <th>Comprar</th>
                 </tr>
                 <tr>
                     <td>General</td>
                     <td>€50</td>
                     <td>Acceso a todos los escenarios, zona de comida y bebida, áreas de descanso. Una única fecha</td>
+                    <td><a href="compra-entradas.html?tipo=General&precio=50&modalidad=fecha" class="btn-comprar">Comprar</a></td>
                 </tr>
                 <tr>
                     <td>VIP</td>
                     <td>€140</td>
-                    <td>Lo anterior + Acceso a zona VIP con vista privilegiada y acceso a backstage. + Bono de 20€ en consumición </td>
+                    <td>Lo anterior + Acceso a zona VIP con vista privilegiada y acceso a backstage. + Bono de 20€ en consumición</td>
+                    <td><a href="compra-entradas.html?tipo=VIP&precio=140&modalidad=fecha" class="btn-comprar">Comprar</a></td>
                 </tr>
                 <tr>
                     <td>Premium</td>
                     <td>€250</td>
                     <td>Lo anterior + Acceso a zona Premium con Meet and greet con los artistas y acceso a barra libre y catering exclusivo. Además de merchandising exclusivo.</td>
+                    <td><a href="compra-entradas.html?tipo=Premium&precio=250&modalidad=fecha" class="btn-comprar">Comprar</a></td>
                 </tr>
-
-
             </table>
         </div>
 
-        <div id = "entradasAbono">
+        <div id="entradasAbono">
             <h2 id="tituloAbonos">Abonos para Todas las Fechas</h2>
-            <table id = "tablaAbonos">
+            <table id="tablaAbonos">
                 <tr>
                     <th>Tipo de Abono</th>
                     <th>Precio</th>
                     <th>Beneficios</th>
+                    <th>Comprar</th>
                 </tr>
                 <tr>
                     <td>General</td>
                     <td>€150</td>
                     <td>Acceso a todos los escenarios, zona de comida y bebida, áreas de descanso. Acceso a todas las fechas.</td>
+                    <td><a href="compra-entradas.html?tipo=General&precio=150&modalidad=abono" class="btn-comprar">Comprar</a></td>
                 </tr>
                 <tr>
                     <td>VIP</td>
                     <td>€320</td>
                     <td>Lo anterior + Acceso a zona VIP con vista privilegiada y acceso a backstage. + Bono de 20€ en consumición por fecha.</td>
+                    <td><a href="compra-entradas.html?tipo=VIP&precio=320&modalidad=abono" class="btn-comprar">Comprar</a></td>
                 </tr>
                 <tr>
                     <td>Premium</td>
                     <td>€750</td>
                     <td>Lo anterior + Acceso a zona Premium con Meet and greet con los artistas y acceso a barra libre y catering exclusivo. Además de merchandising exclusivo.</td>
+                    <td><a href="compra-entradas.html?tipo=Premium&precio=750&modalidad=abono" class="btn-comprar">Comprar</a></td>
                 </tr>
             </table>
-        </div>    
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer id="piePagina">
         <p id="copyright">© 2025 EFAstival · Todos los derechos reservados</p>
-        <img id="imgVisa" src="img/visa.png" alt="Logo Visa" />
+        <img id="imgVisa" src="img/Visa.png" alt="Logo Visa" />
         <img id="imgBizum" src="img/Bizum.png" alt="Logo Bizum" />
     </footer>
 
 </body>
 </html>
-

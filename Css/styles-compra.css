@@ -1,0 +1,512 @@
+/* ============================================
+   EFASTIVAL — styles-compra.css
+   Estilos de compra-entradas.html
+   ============================================ */
+
+#contenidoCompra {
+    padding: 60px 40px 80px;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 70vh;
+}
+
+/* ── INDICADOR DE PASOS ── */
+#indicadorPasos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 3rem;
+}
+
+.paso-ind {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.paso-ind .circulo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.35);
+    transition: all 0.35s;
+}
+
+.paso-ind .etiqueta {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.35s;
+}
+
+.paso-ind.activo .circulo {
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    border-color: transparent;
+    color: var(--white);
+}
+
+.paso-ind.activo .etiqueta {
+    color: var(--cyan);
+}
+
+.paso-ind.completado .circulo {
+    background: rgba(0,212,255,0.15);
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.linea-ind {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 6px;
+    margin-bottom: 22px;
+    max-width: 60px;
+}
+
+/* ── PASOS ── */
+.paso {
+    display: none;
+    animation: fadeIn 0.4s ease both;
+}
+
+.paso.activo {
+    display: block;
+}
+
+.paso-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 2rem;
+}
+
+.num-paso {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.paso-header h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── TARJETA RESUMEN ── */
+#tarjetaResumen {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.badge-fecha {
+    display: inline-block;
+    background: rgba(255,106,0,0.2);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+}
+
+.badge-abono {
+    display: inline-block;
+    background: rgba(139,47,201,0.2);
+    border: 1px solid var(--purple);
+    color: #c47dff;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+}
+
+#resumenTipo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+/* ── CONTROL PRECIO ── */
+#resumenPrecioFila {
+    margin: 1.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 1rem 0;
+}
+
+.precio-linea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+}
+
+.precio-linea span:last-child {
+    font-weight: 600;
+    color: var(--white);
+}
+
+.precio-total {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.precio-total span:last-child {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── CONTROL CANTIDAD ── */
+#controlCantidad {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#controlCantidad button {
+    background: rgba(255,255,255,0.07);
+    border: none;
+    color: var(--white);
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+#controlCantidad button:hover {
+    background: rgba(139,47,201,0.3);
+}
+
+#cantidad {
+    min-width: 34px;
+    text-align: center;
+    font-weight: 700;
+    padding: 0 10px;
+}
+
+/* ── BENEFICIOS ── */
+#beneficiosList h4 {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.6rem;
+}
+
+#listaBeneficios {
+    list-style: none;
+    padding: 0;
+}
+
+#listaBeneficios li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    padding-left: 1.4rem;
+    position: relative;
+}
+
+#listaBeneficios li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 0.85rem;
+}
+
+/* ── FORMULARIO ── */
+#formularioDatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.campo-grupo.doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+.campo input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+}
+
+.campo input::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+.campo input:focus {
+    border-color: var(--cyan);
+    background: rgba(0,212,255,0.05);
+}
+
+/* ── MÉTODO DE PAGO ── */
+#selectorPago {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.opcion-pago {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.9rem;
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.opcion-pago img {
+    width: 36px;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.25s;
+}
+
+.opcion-pago:hover {
+    border-color: rgba(255,255,255,0.25);
+    color: var(--white);
+}
+
+.opcion-pago.activa {
+    border-color: var(--cyan);
+    background: rgba(0,212,255,0.07);
+    color: var(--white);
+}
+
+.opcion-pago.activa img {
+    opacity: 1;
+}
+
+.panel-pago {
+    display: none;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.panel-pago.activo {
+    display: flex;
+}
+
+.nota-bizum {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.4rem;
+}
+
+/* ── RESUMEN PAGO FINAL ── */
+#resumenPagoFinal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.precio-grande {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── BOTONERA ── */
+.botonera {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primario {
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.25s, transform 0.2s;
+}
+
+.btn-primario:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-secundario:hover {
+    border-color: rgba(255,255,255,0.35);
+    color: var(--white);
+}
+
+.btn-pagar {
+    font-size: 1.2rem;
+    padding: 0.9rem 2.5rem;
+}
+
+/* ── CONFIRMACIÓN ── */
+#seccionConfirmacion {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+#iconoConfirmacion {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin: 0 auto 1.5rem;
+    animation: aparecer 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+#tituloConfirmacion {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    background: linear-gradient(90deg, var(--white) 40%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+#textoConfirmacion {
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+#referenciaCompra {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,212,255,0.25);
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+}
+
+#referenciaCompra strong {
+    color: var(--cyan);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    #contenidoCompra { padding: 40px 20px 60px; }
+    .campo-grupo.doble { grid-template-columns: 1fr; }
+    #selectorPago { gap: 0.6rem; }
+    .botonera { flex-direction: column-reverse; }
+    .btn-primario, .btn-secundario { width: 100%; text-align: center; }
+}

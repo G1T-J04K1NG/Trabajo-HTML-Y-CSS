@@ -120,14 +120,34 @@
 }
  
 /* Logos de pago */
+
+ 
+/* ── FOOTER ── */
+
+#piePagina {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    margin-top: 4rem;
+    /* Eliminamos margin-right: auto para evitar que el footer se desplace a un lado */
+}
+
+#copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 15px; /* Un poco de espacio antes de los logos */
+}
+
+/* Nuevo contenedor con Flexbox para centrar y alinear verticalmente */
 #logosPago {
     display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-right: auto;
-    margin-top: 1rem;
+    justify-content: center; /* Centra los logos horizontalmente en el footer */
+    align-items: center;     /* Alinea los centros de Bizum y Visa verticalmente */
+    gap: 15px;               /* Separa un logo del otro uniformemente */
 }
- 
+
+/* Logos de pago */
 #imgVisa,
 #imgBizum {
     width: 50px;
@@ -136,7 +156,7 @@
     filter: grayscale(100%);
     transition: opacity 0.3s, filter 0.3s;
 }
- 
+
 #imgVisa:hover,
 #imgBizum:hover {
     opacity: 0.9;

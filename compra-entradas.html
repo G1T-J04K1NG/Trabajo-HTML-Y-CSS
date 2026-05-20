@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html id="paginaCompra" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Entrada — EFAstival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/styles-global.css">
+    <link rel="stylesheet" href="Css/styles-compra.css">
+</head>
+<body id="cuerpo">
+
+    <!-- HEADER -->
+    <header id="cabecera">
+        <div id="cabeceraTop" class="header-top">
+            <img id="imgLogo" src="img/Gemini_Generated_Image_ssu0tbssu0tbssu0-removebg-preview.png" alt="Logo Efastival" />
+            <h1 id="TituloPrincipal">EFASTIVAL</h1>
+        </div>
+        <p id="subtituloHeader">El festival que cambiará tu forma de escuchar la música</p>
+        <nav id="navegacion">
+            <ul id="menuNav">
+                <li id="navInicio"><a href="index.html">Inicio</a></li>
+                <li id="navArtistas"><a href="artistas.html">Artistas</a></li>
+                <li id="navEntradas"><a href="entradas.html" class="nav-activo">Entradas</a></li>
+                <li id="navHorarios"><a href="horarios.html">Horarios</a></li>
+                <li id="navSobreNosotros"><a href="sobreNosotros.html">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenidoCompra">
+
+        <!-- PASO 1: Resumen del pedido -->
+        <section id="seccionResumen" class="paso activo" data-paso="1">
+            <div class="paso-header">
+                <span class="num-paso">1</span>
+                <h2>Resumen del pedido</h2>
+            </div>
+
+            <div id="tarjetaResumen">
+                <div id="badgeModalidad"></div>
+                <h3 id="resumenTipo"></h3>
+                <p id="resumenDescripcion"></p>
+
+                <div id="resumenPrecioFila">
+                    <div class="precio-linea">
+                        <span>Precio unitario</span>
+                        <span id="precioUnitario"></span>
+                    </div>
+                    <div class="precio-linea">
+                        <span>Cantidad</span>
+                        <div id="controlCantidad">
+                            <button id="btnMenos" aria-label="Restar">−</button>
+                            <span id="cantidad">1</span>
+                            <button id="btnMas" aria-label="Sumar">+</button>
+                        </div>
+                    </div>
+                    <div class="precio-linea precio-total">
+                        <span>Total</span>
+                        <span id="precioTotal"></span>
+                    </div>
+                </div>
+
+                <div id="beneficiosList">
+                    <h4>Incluye:</h4>
+                    <ul id="listaBeneficios"></ul>
+                </div>
+            </div>
+
+            <div class="botonera">
+                <a href="entradas.html" class="btn-secundario">← Volver</a>
+                <button class="btn-primario" onclick="irPaso(2)">Continuar →</button>
+            </div>
+        </section>
+
+        <!-- PASO 2: Datos del comprador -->
+        <section id="seccionDatos" class="paso" data-paso="2">
+            <div class="paso-header">
+                <span class="num-paso">2</span>
+                <h2>Tus datos</h2>
+            </div>
+
+            <div id="formularioDatos">
+                <div class="campo-grupo doble">
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder="Ej: María" autocomplete="given-name">
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" placeholder="Ej: García López" autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com" autocomplete="email">
+                </div>
+                <div class="campo">
+                    <label for="telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="telefono" placeholder="+34 600 000 000" autocomplete="tel">
+                </div>
+                <div class="campo">
+                    <label for="dni">DNI / NIE</label>
+                    <input type="text" id="dni" placeholder="12345678A" maxlength="9">
+                </div>
+            </div>
+
+            <div class="botonera">
+                <button class="btn-secundario" onclick="irPaso(1)">← Atrás</button>
+                <button class="btn-primario" onclick="validarDatosYContinuar()">Continuar →</button>
+            </div>
+        </section>
+
+        <!-- PASO 3: Pago -->
+        <section id="seccionPago" class="paso" data-paso="3">
+            <div class="paso-header">
+                <span class="num-paso">3</span>
+                <h2>Método de pago</h2>
+            </div>
+
+            <div id="selectorPago">
+                <button class="opcion-pago activa" id="btnTarjeta" onclick="seleccionarPago('tarjeta')">
+                    <img src="img/Visa.png" alt="Tarjeta" />
+                    Tarjeta
+                </button>
+                <button class="opcion-pago" id="btnBizum" onclick="seleccionarPago('bizum')">
+                    <img src="img/Bizum.png" alt="Bizum" />
+                    Bizum
+                </button>
+            </div>
+
+            <!-- Panel tarjeta -->
+            <div id="panelTarjeta" class="panel-pago activo">
+                <div class="campo">
+                    <label for="titular">Titular de la tarjeta</label>
+                    <input type="text" id="titular" placeholder="Nombre como aparece en la tarjeta" autocomplete="cc-name">
+                </div>
+                <div class="campo">
+                    <label for="numeroTarjeta">Número de tarjeta</label>
+                    <input type="text" id="numeroTarjeta" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number">
+                </div>
+                <div class="campo-grupo doble">
+                    <div class="campo">
+                        <label for="caducidad">Caducidad</label>
+                        <input type="text" id="caducidad" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
+                    </div>
+                    <div class="campo">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="3" autocomplete="cc-csc">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Bizum -->
+            <div id="panelBizum" class="panel-pago">
+                <div class="campo">
+                    <label for="telefonoBizum">Teléfono Bizum</label>
+                    <input type="tel" id="telefonoBizum" placeholder="+34 600 000 000">
+                </div>
+                <p class="nota-bizum">Recibirás una solicitud de pago en tu app bancaria.</p>
+            </div>
+
+            <div id="resumenPagoFinal">
+                <span>Total a pagar:</span>
+                <span id="totalFinal" class="precio-grande"></span>
+            </div>
+
+            <div class="botonera">
+                <button class="btn-secundario" onclick="irPaso(2)">← Atrás</button>
+                <button class="btn-primario btn-pagar" onclick="confirmarCompra()">Pagar ahora</button>
+            </div>
+        </section>
+
+        <!-- PASO 4: Confirmación -->
+        <section id="seccionConfirmacion" class="paso" data-paso="4">
+            <div id="iconoConfirmacion">✓</div>
+            <h2 id="tituloConfirmacion">¡Compra completada!</h2>
+            <p id="textoConfirmacion">Tu entrada ha sido procesada correctamente. Recibirás un correo con los detalles en breve.</p>
+            <div id="referenciaCompra">
+                <span>Referencia de compra:</span>
+                <strong id="codigoRef"></strong>
+            </div>
+            <a href="entradas.html" class="btn-primario" style="margin-top:2rem;display:inline-block;">Volver a entradas</a>
+        </section>
+
+        <!-- INDICADOR DE PASOS -->
+        <div id="indicadorPasos">
+            <div class="paso-ind activo" id="ind1">
+                <span class="circulo">1</span>
+                <span class="etiqueta">Resumen</span>
+            </div>
+            <div class="linea-ind"></div>
+            <div class="paso-ind" id="ind2">
+                <span class="circulo">2</span>
+                <span class="etiqueta">Datos</span>
+            </div>
+            <div class="linea-ind"></div>
+            <div class="paso-ind" id="ind3">
+                <span class="circulo">3</span>
+                <span class="etiqueta">Pago</span>
+            </div>
+            <div class="linea-ind"></div>
+            <div class="paso-ind" id="ind4">
+                <span class="circulo">✓</span>
+                <span class="etiqueta">Listo</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="piePagina">
+        <p id="copyright">© 2025 EFAstival · Todos los derechos reservados</p>
+        <img id="imgVisa" src="img/Visa.png" alt="Logo Visa" />
+        <img id="imgBizum" src="img/Bizum.png" alt="Logo Bizum" />
+    </footer>
+
+    <script>
+        // ── Leer parámetros de la URL ──
+        const params = new URLSearchParams(window.location.search);
+        const tipo = params.get('tipo') || 'General';
+        const precio = parseFloat(params.get('precio')) || 50;
+        const modalidad = params.get('modalidad') || 'fecha';
+
+        let cantidad = 1;
+        let pasoActual = 1;
+
+        const beneficiosMap = {
+            'General-fecha':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Una única fecha'],
+            'VIP-fecha':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ en consumición'],
+            'Premium-fecha':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
+            'General-abono':  ['Acceso a todos los escenarios', 'Zona de comida y bebida', 'Áreas de descanso', 'Todas las fechas del festival'],
+            'VIP-abono':      ['Todo lo de General', 'Zona VIP con vista privilegiada', 'Acceso a backstage', 'Bono de 20€ por fecha'],
+            'Premium-abono':  ['Todo lo de VIP', 'Meet & Greet con artistas', 'Barra libre y catering exclusivo', 'Merchandising exclusivo'],
+        };
+
+        function formatPrecio(n) {
+            return '€' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2));
+        }
+
+        function actualizarTotal() {
+            const total = precio * cantidad;
+            document.getElementById('precioTotal').textContent = formatPrecio(total);
+            document.getElementById('totalFinal').textContent = formatPrecio(total);
+        }
+
+        function init() {
+            // Rellenar resumen
+            const badge = document.getElementById('badgeModalidad');
+            badge.textContent = modalidad === 'abono' ? 'ABONO COMPLETO' : 'UNA FECHA';
+            badge.className = 'badge-' + modalidad;
+
+            document.getElementById('resumenTipo').textContent = tipo + (modalidad === 'abono' ? ' — Abono' : ' — Fecha');
+            document.getElementById('precioUnitario').textContent = formatPrecio(precio);
+
+            const key = tipo + '-' + modalidad;
+            const beneficios = beneficiosMap[key] || [];
+            const lista = document.getElementById('listaBeneficios');
+            lista.innerHTML = beneficios.map(b => `<li>${b}</li>`).join('');
+
+            actualizarTotal();
+
+            // Controles cantidad
+            document.getElementById('btnMenos').addEventListener('click', () => {
+                if (cantidad > 1) { cantidad--; document.getElementById('cantidad').textContent = cantidad; actualizarTotal(); }
+            });
+            document.getElementById('btnMas').addEventListener('click', () => {
+                if (cantidad < 10) { cantidad++; document.getElementById('cantidad').textContent = cantidad; actualizarTotal(); }
+            });
+
+            // Formato tarjeta
+            document.getElementById('numeroTarjeta').addEventListener('input', e => {
+                let v = e.target.value.replace(/\D/g, '').substring(0,16);
+                e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+            });
+            document.getElementById('caducidad').addEventListener('input', e => {
+                let v = e.target.value.replace(/\D/g, '').substring(0,4);
+                if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2);
+                e.target.value = v;
+            });
+        }
+
+        function irPaso(n) {
+            document.querySelectorAll('.paso').forEach(p => p.classList.remove('activo'));
+            document.querySelector('[data-paso="' + n + '"]').classList.add('activo');
+            document.querySelectorAll('.paso-ind').forEach((ind, i) => {
+                ind.classList.toggle('activo', i < n);
+                ind.classList.toggle('completado', i < n - 1);
+            });
+            pasoActual = n;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validarDatosYContinuar() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const dni = document.getElementById('dni').value.trim();
+            if (!nombre || !email || !dni) {
+                alert('Por favor, rellena los campos obligatorios: nombre, email y DNI.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Por favor, introduce un email válido.');
+                return;
+            }
+            irPaso(3);
+        }
+
+        function seleccionarPago(metodo) {
+            document.querySelectorAll('.opcion-pago').forEach(b => b.classList.remove('activa'));
+            document.querySelectorAll('.panel-pago').forEach(p => p.classList.remove('activo'));
+            document.getElementById('btn' + metodo.charAt(0).toUpperCase() + metodo.slice(1)).classList.add('activa');
+            document.getElementById('panel' + metodo.charAt(0).toUpperCase() + metodo.slice(1)).classList.add('activo');
+        }
+
+        function confirmarCompra() {
+            irPaso(4);
+            const ref = 'EFA-' + Date.now().toString(36).toUpperCase();
+            document.getElementById('codigoRef').textContent = ref;
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
