@@ -1,8 +1,3 @@
-/* ============================================
-   EFASTIVAL — styles-global.css
-   Estilos compartidos por todas las páginas
-   ============================================ */
-
 /* ── VARIABLES ── */
 :root {
     --purple: #8b2fc9;
@@ -31,7 +26,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px 20px 20px 5px;
-    background: linear-gradient(270deg, #8b2fc9, #00d4ff, #ff6a00, #8b2fc9);
+    background: linear-gradient(270deg, var(--purple), var(--cyan), var(--orange), var(--purple));
     background-size: 300% 300%;
     animation: gradiente 15s ease infinite;
 }
