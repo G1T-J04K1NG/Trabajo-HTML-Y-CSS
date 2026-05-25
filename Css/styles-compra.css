@@ -17,7 +17,9 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
+    margin-top:3rem;
+
 }
 
 .paso-ind {
